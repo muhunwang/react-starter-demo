@@ -14,21 +14,20 @@ jobs:
           issuesOpened: |
             👋 @{{ author }}，感谢给 FlyFish 提出了 issue。
             请根据 issue 模版确保背景信息的完善，我们将调查并尽快回复你。
-  add-assigness:
+  mark-assignees:
     name: assign
     runs-on: ubuntu-latest
     steps:
-      - name: Add assigness
+      - name: mark assigness
         uses: actions-cool/issues-helper@v3
-        id: maintainer
         with:
-          actions: 'add-assignees'
+          actions: 'mark-assignees'
           token: ${{ secrets.GITHUB_TOKEN }}
-          issue-number: ${{ github.event.issue.number }}
-          assignees: jincheny
-          random-to: 1
+          # issue-number: ${{ github.event.issue.number }}
+          # assignees: jincheny
+          # random-to: 1
           body: |
-            ♥️ 有劳 @jincheny 尽快确认问题。
+            ♥️ 有劳 @jincheny 尽快确认问题 ${{ github.event.issue.number }}。
             确认有效后将下一步计划和可能需要的时间回复给 @${{ github.event.issue.user.login }} 。
             <!-- AUTO_ASSIGENEES_NOTIFY_HOOK -->
           number: ${{ github.event.issue.number }}
