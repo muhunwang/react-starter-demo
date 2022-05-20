@@ -19,7 +19,7 @@ jobs:
       - uses: 94dreamer/issue-assignees@main
         id: assignees
         with:
-          project_name: ${{github.event.repository.name}}
+          # project_name: ${{github.event.repository.name}}
           issue_title: ${{github.event.issue.title}}
 
       - run: echo ${{ steps.assignees.outputs.contributors }}
