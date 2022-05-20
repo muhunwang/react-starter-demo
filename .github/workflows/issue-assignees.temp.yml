@@ -1,4 +1,3 @@
-# force copy from tencent/tdesign
 name: Issue Add Assigness
 
 on:
@@ -13,34 +12,19 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           issuesOpened: |
-            👋 @{{ author }}，感谢给 FlyFish 提出了 issue。
+            👋 @{{ author }}，感谢给 TDesign 提出了 issue。
             请根据 issue 模版确保背景信息的完善，我们将调查并尽快回复你。
 
-      # https://docs.github.com/cn/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#issues
-      # - uses: jincheny/issue-assignees@main
-      #   id: assignees
-      #   with:
-      #     project_name: ${{github.event.repository.name}}
-      #     issue_title: ${{github.event.issue.title}}
-
-      - run: echo ${{ steps.assignees.outputs.contributors }}
       - name: Add assigness
-        if: steps.assignees.outputs.contributors != ''
         uses: actions-cool/issues-helper@v3
         with:
           actions: 'add-assignees'
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
-          assignees: ${{ steps.assignees.outputs.contributors }}
-
-      - run: |
-          contributors=${{ steps.assignees.outputs.contributors }}
-          contributorstring=${contributors//,/ @}
-          echo "::set-output name=string::@$contributorstring"
-        id: contributors
+          assignees: jincheny
+          random-to: 1
 
       - name: 通知贡献者
-        if: steps.assignees.outputs.contributors != ''
         uses: actions-cool/maintain-one-comment@v2.0.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -49,4 +33,4 @@ jobs:
             确认有效后将下一步计划和可能需要的时间回复给 @${{ github.event.issue.user.login }} 。
             <!-- AUTO_ASSIGENEES_NOTIFY_HOOK -->
           number: ${{ github.event.issue.number }}
-          body-include: "<!-- AUTO_ASSIGENEES_NOTIFY_HOOK -->"
+          body-include: '<!-- AUTO_ASSIGENEES_NOTIFY_HOOK -->'
