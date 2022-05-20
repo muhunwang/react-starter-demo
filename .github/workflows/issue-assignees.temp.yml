@@ -17,7 +17,7 @@ jobs:
             请根据 issue 模版确保背景信息的完善，我们将调查并尽快回复你。
 
       # https://docs.github.com/cn/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#issues
-      - uses: 94dreamer/issue-assignees@main
+      - uses: jincheny/issue-assignees@main
         id: assignees
         with:
           project_name: ${{github.event.repository.name}}
