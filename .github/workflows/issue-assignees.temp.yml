@@ -28,7 +28,7 @@ jobs:
           issue-number: ${{ github.event.issue.number }}
           assignees: jincheny
           random-to: 1
-  mark-duplicate:
+  mark-duplicates:
     name: notice
     needs: [assign]
     runs-on: ubuntu-latest
