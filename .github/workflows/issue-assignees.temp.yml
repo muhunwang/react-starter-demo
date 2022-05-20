@@ -29,7 +29,8 @@ jobs:
           assignees: jincheny
           random-to: 1
   mark-duplicate:
-    needs: [reply, assign]
+    name: notice
+    needs: [assign]
     runs-on: ubuntu-latest
     steps:
       - name: 通知维护者
