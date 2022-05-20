@@ -24,7 +24,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
             👋 @{{ github.event.issue.user.login }，感谢您给 FlyFish 提出了 issue。
-            ♥️ 有劳 ${{ steps.assign.outputs.issue-assignee }} 尽快确认问题。
+            ♥️ 有劳 ${{ steps.assign.outputs.issue }} 尽快确认问题。
             确认有效后将下一步计划和可能需要的时间回复给 @${{ github.event.issue.user.login }} 。
             <!-- AUTO_ASSIGENEES_NOTIFY_HOOK -->
           number: ${{ github.event.issue.number }}
