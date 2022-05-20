@@ -13,15 +13,15 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           issuesOpened: |
-            👋 @{{ author }}，感谢给 TDesign 提出了 issue。
+            👋 @{{ author }}，感谢给 FlyFish 提出了 issue。
             请根据 issue 模版确保背景信息的完善，我们将调查并尽快回复你。
 
       # https://docs.github.com/cn/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#issues
-      - uses: jincheny/issue-assignees@main
-        id: assignees
-        with:
-          project_name: ${{github.event.repository.name}}
-          issue_title: ${{github.event.issue.title}}
+      # - uses: jincheny/issue-assignees@main
+      #   id: assignees
+      #   with:
+      #     project_name: ${{github.event.repository.name}}
+      #     issue_title: ${{github.event.issue.title}}
 
       - run: echo ${{ steps.assignees.outputs.contributors }}
       - name: Add assigness
