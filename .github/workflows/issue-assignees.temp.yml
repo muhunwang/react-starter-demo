@@ -12,13 +12,5 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           issuesOpened: |
-            👋 @{{ author }}，感谢您给 FlyFish 提出了 issue。
-            请根据 issue 模版确保背景信息的完善，我们将调查并尽快回复你。
-  mark-assignees:
-    runs-on: ubuntu-latest
-    steps:
-      - name: mark-assignees
-        uses: actions-cool/issues-helper@v3
-        with:
-          actions: 'mark-assignees'
-          token: ${{ secrets.GITHUB_TOKEN }}
+            👋 感谢您给 FlyFish 提出了 issue。
+            ♥️ 有劳 @jincheny 尽快确认问题，确认有效后将下一步计划和可能需要的时间回复给您。
