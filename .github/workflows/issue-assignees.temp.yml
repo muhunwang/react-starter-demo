@@ -15,7 +15,6 @@ jobs:
             👋 @{{ author }}，感谢您给 FlyFish 提出了 issue。
             请根据 issue 模版确保背景信息的完善，我们将调查并尽快回复你。
   mark-assignees:
-    name: assign
     runs-on: ubuntu-latest
     steps:
       - name: mark assigness
@@ -24,11 +23,10 @@ jobs:
           actions: 'mark-assignees'
           token: ${{ secrets.GITHUB_TOKEN }}
           # issue-number: ${{ github.event.issue.number }}
-          # assignees: jincheny
+          assignees: jincheny
           # random-to: 1
           body: |
             ♥️ 有劳 @jincheny 尽快确认问题。
             确认有效后将下一步计划和可能需要的时间回复给。
-            <!-- AUTO_ASSIGENEES_NOTIFY_HOOK -->
           # number: ${{ github.event.issue.number }}
           # body-include: '<!-- AUTO_ASSIGENEES_NOTIFY_HOOK -->'
