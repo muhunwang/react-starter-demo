@@ -18,6 +18,7 @@ jobs:
           assignees: jincheny
           random-to: 1
 
+      - run: echo ${{ steps.assignees.outputs }}
       - name: 通知开发者
         uses: actions-cool/maintain-one-comment@v2.0.0
         with:
