@@ -6,7 +6,6 @@ on:
 
 jobs:
   mark-duplicate:
-    name: reply
     runs-on: ubuntu-latest
     steps:
       - uses: wow-actions/auto-comment@v1
@@ -17,7 +16,6 @@ jobs:
             请根据 issue 模版确保背景信息的完善，我们将调查并尽快回复你。
   add-assigness:
     name: assign
-    needs: reply
     runs-on: ubuntu-latest
     steps:
       - name: Add assigness
