@@ -22,17 +22,3 @@ jobs:
         with:
           actions: 'mark-assignees'
           token: ${{ secrets.GITHUB_TOKEN }}
-    # steps:
-    #   - name: mark assigness
-    #     uses: actions-cool/issues-helper@v3
-    #     with:
-    #       actions: 'mark-assignees'
-    #       token: ${{ secrets.GITHUB_TOKEN }}
-    #       # issue-number: ${{ github.event.issue.number }}
-    #       assignees: jincheny
-    #       # random-to: 1
-    #       body: |
-    #         ♥️ 有劳 @jincheny 尽快确认问题。
-    #         确认有效后将下一步计划和可能需要的时间回复给。
-    #       # number: ${{ github.event.issue.number }}
-    #       # body-include: '<!-- AUTO_ASSIGENEES_NOTIFY_HOOK -->'
