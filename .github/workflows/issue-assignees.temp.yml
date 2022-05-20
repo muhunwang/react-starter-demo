@@ -12,5 +12,20 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           issuesOpened: |
-            👋 感谢您给 FlyFish 提出了 issue。
-            ♥️ 有劳 @jincheny 尽快确认问题，确认有效后将下一步计划和可能需要的时间回复给您。
+            👋 @{{ author }，感谢您给 FlyFish 提出了 issue。
+  add-assigness:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add assigness
+        uses: actions-cool/issues-helper@v3
+        id: assign
+        with:
+          actions: 'add-assignees'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          assignees: jincheny
+          random-to: 1
+          body: |
+            ♥️ 有劳 @${{ steps.assign.outputs.assignees }} 尽快确认问题 ${{ github.event.issue.number }}。
+
+
