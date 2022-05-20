@@ -29,7 +29,7 @@ jobs:
           issue-number: ${{ github.event.issue.number }}
           assignees: jincheny,muhunwang
           random-to: 1
-    steps:
+
       - name: 通知维护者
         uses: actions-cool/maintain-one-comment@v2.0.0
         with:
