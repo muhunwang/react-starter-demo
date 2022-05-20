@@ -8,8 +8,7 @@ jobs:
   mark-duplicate:
     runs-on: ubuntu-latest
     steps:
-      - name: Mark duplicate
-        uses: wow-actions/auto-comment@v1
+      - uses: wow-actions/auto-comment@v1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           issuesOpened: |
