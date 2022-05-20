@@ -17,7 +17,7 @@ jobs:
             请根据 issue 模版确保背景信息的完善，我们将调查并尽快回复你。
   add-assigness:
     name: assign
-    needs: [reply]
+    needs: reply
     runs-on: ubuntu-latest
     steps:
       - name: Add assigness
@@ -27,12 +27,8 @@ jobs:
           actions: 'add-assignees'
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
-          assignees: jincheny
+          assignees: jincheny,muhunwang
           random-to: 1
-  mark-duplicates:
-    name: notice
-    needs: [assign]
-    runs-on: ubuntu-latest
     steps:
       - name: 通知维护者
         uses: actions-cool/maintain-one-comment@v2.0.0
