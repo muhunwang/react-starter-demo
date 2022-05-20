@@ -6,6 +6,7 @@ on:
 
 jobs:
   mark-duplicate:
+    name: reply
     runs-on: ubuntu-latest
     steps:
       - uses: wow-actions/auto-comment@v1
@@ -14,7 +15,11 @@ jobs:
           issuesOpened: |
             👋 @{{ author }}，感谢给 FlyFish 提出了 issue。
             请根据 issue 模版确保背景信息的完善，我们将调查并尽快回复你。
-
+  add-assigness:
+    name: assign
+    needs: [reply]
+    runs-on: ubuntu-latest
+    steps:
       - name: Add assigness
         uses: actions-cool/issues-helper@v3
         with:
@@ -23,13 +28,16 @@ jobs:
           issue-number: ${{ github.event.issue.number }}
           assignees: jincheny
           random-to: 1
-
+  mark-duplicate:
+    needs: [reply, assign]
+    runs-on: ubuntu-latest
+    steps:
       - name: 通知维护者
         uses: actions-cool/maintain-one-comment@v2.0.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
-            ♥️ 有劳 ${{ author }} 尽快确认问题。
+            ♥️ 有劳 ${{ assignee }} 尽快确认问题。
             确认有效后将下一步计划和可能需要的时间回复给 @${{ github.event.issue.user.login }} 。
             <!-- AUTO_ASSIGENEES_NOTIFY_HOOK -->
           number: ${{ github.event.issue.number }}
